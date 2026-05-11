@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>AIA Quotation System | A-Life MediFlex-i</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-container">
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-shield-alt"></i>
+            <h1>AIA Quotation System</h1>
+        </div>
+        <p class="subtitle">A-Life MediFlex-i | Plan 180/250/350 | RM500 Deductible</p>
+    </header>
+
+    <div class="main-card">
+        <div class="form-section">
+            <h2><i class="fas fa-user"></i> Maklumat Pelanggan</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-alt"></i> Umur (tahun)</label>
+                    <input type="number" id="age" min="20" max="60" value="35" step="1">
+                    <span class="helper">20 - 60 tahun</span>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-venus-mars"></i> Jantina</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="gender" value="Male"> Lelaki</label>
+                        <label class="radio-label"><input type="radio" name="gender" value="Female" checked> Perempuan</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-chart-line"></i> Plan</label>
+                    <select id="planSelect">
+                        <option value="180">Plan 180 (Annual Limit RM180K)</option>
+                        <option value="250" selected>Plan 250 (Annual Limit RM250K)</option>
+                        <option value="350">Plan 350 (Annual Limit RM350K)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-coins"></i> Cost Saving Option</label>
+                    <select id="costSavingOption">
+                        <option value="rm500">RM500 Deductible (Standard)</option>
+                        <option value="smart">RM500 Deductible with SMART Option</option>
+                        <option value="rm20000">RM20,000 Deductible (Premium Lebih Rendah)</option>
+                    </select>
+                    <span class="helper" id="costSavingHelper">Deductible perlu ditanggung sebelum takaful membayar</span>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-briefcase"></i> Kelas Pekerjaan</label>
+                    <select id="jobClass">
+                        <option value="1">Class 1 (0% loading)</option>
+                        <option value="2">Class 2 (0% loading)</option>
+                        <option value="3">Class 3 (0% loading)</option>
+                        <option value="4">Class 4 (+40% loading)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-credit-card"></i> Mod Pembayaran</label>
+                    <select id="paymentMode">
+                        <option value="annual">Tahunan (0% loading)</option>
+                        <option value="half">Setengah Tahunan (+2.2%)</option>
+                        <option value="quarter">Suku Tahunan (+1.1%)</option>
+                        <option value="monthly" selected>Bulanan (+4.4%)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="riders-section">
+                <h3><i class="fas fa-plus-circle"></i> Rider Tambahan</h3>
+                <div class="checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="booster"> 
+                        <div><strong>A-Plus MediBoost-i</strong><small>Meningkatkan annual limit ke RM1Juta (Plan 250/350)</small></div>
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="apmri"> 
+                        <div><strong>A-Plus MediRecover-i</strong><small>Perlindungan hospitalisasi panjang (RM10,000)</small></div>
+                    </label>
+                </div>
+                <div class="plan-note" id="boosterNote"></div>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <div class="result-header">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h2>Quotation Anda</h2>
+            </div>
+            <div class="cost-saving-info" id="costSavingInfo"></div>
+            <div class="result-details" id="resultDetails"></div>
+            <div id="loadingInfo"></div>
+            <div class="total-amount" id="totalAmount">
+                <div class="label">Jumlah Caruman (Bulanan)</div>
+                <div class="amount">RM<span id="totalAmountValue">0.00</span></div>
+            </div>
+            <div class="equivalent-note" id="equivalentNote"></div>
+            <button class="btn-share" id="shareBtn"><i class="fas fa-share-alt"></i> Kongsi Quotation</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>AIA Public Takaful | A-Life MediFlex-i Plan 180/250/350 (RM500 Deductible)</p>
+        <small>Caruman tidak dijamin dan boleh berubah mengikut pindaan kadar syarikat.</small>
+    </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
